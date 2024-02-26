@@ -1,0 +1,114 @@
+<div class="box back">
+    <div class=" container ">
+        <div class="  d-flex row py-1 my-0  m-0   ">
+            <div class="col-md-5 d-flex justify-content-evenly p-0 m-0">
+                <p class="logo p-0 m-0"> Mini <span class="text-white">Store</span></p>
+                <p class="p-0 m-0">+625438790</p>
+            </div>
+            <div class="col-md-7 d-flex justify-content-evenly p-0 m-0 ">
+                <ul class="list-unstyled d-flex p-0 m-0 justify-content-between">
+                    <li class="p-0 m-0 mx-1">
+                        <i class="fa-brands fa-facebook p-0 m-0"></i>
+                    </li>
+                    <li class="p-0 m-0 mx-1"><i class="fa-brands fa-whatsapp p-0 m-0"></i>
+                    </li>
+                    <li class="p-0 m-0 mx-1"><i class="fa-regular fa-envelope p-0 m-0"></i>
+                    </li>
+                    <li class="p-0 m-0 mx-1"><i class="fa-brands fa-facebook-messenger p-0 m-0"></i>
+                    </li>
+                </ul>
+                <div class="d-flex p-0 m-0">
+                    <ul class="list-unstyled d-flex p-0 m-0">
+                        <li> <i class="fa-solid fa-phone p-0 m-0"></i></li>
+                        <li class="mx-1">
+                            <p class="p-0 m-0">Contact Us</p>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg  back">
+    <div class="container container-sm-0 ">
+        <a class="navbar-brand  " href="#"><img src="../../assets/image/logo-no-background.png" alt=""
+                style="width: 80px ;height: 50px;"></a>
+        <button class="navbar-toggler text-white" style="color: white;" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse container " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
+                <li class="nav-item py-1">
+                    <a *ngIf="islogin" class="nav-link active text-white" style="color:white;" aria-current="page"
+                        routerLink="home">Home</a>
+                </li>
+                <li class="nav-item py-1">
+                    <a *ngIf="islogin" class="nav-link text-white" routerLink="/link">Link</a>
+                </li>
+
+                <li class="nav-item py-1">
+                    <a *ngIf="islogin" class="nav-link text-white" routerLink="/cart">Cart</a>
+                </li>
+                <li class="nav-item py-1 dropdown" style="color: black;">
+                    <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a *ngIf="!islogin" class="dropdown-item" routerLink="login" style="color: black;">Login</a>
+                        </li>
+                        <li><a *ngIf="!islogin" class="dropdown-item" routerLink="register"
+                                style="color: black;">register</a></li>
+                        <li><a (click)="logOut()" *ngIf="islogin" class="dropdown-item" href=""
+                                style="color: black;">LogOut</a></li>
+                        <!-- <li>
+                
+                                                <hr class="dropdown-divider">
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                    </ul>
+                </li>
+            </ul>
+
+
+            <div class="d-flex " *ngIf="islogin" routerLink="/cart" style="cursor: pointer;">
+                <span class="text-white py-1 m-0">shopping Cart </span> <span
+                    class=" py-2 px-1 fa-solid fa-chevron-right"></span>
+
+                <ul class="navbar-nav " style="cursor: pointer;">
+                    <!-- 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </li> -->
+
+                    <li class="position-relative py-2 " style="width: 2rem; height: 2rem;">
+
+                        <i class="fa-solid fa-cart-shopping p-0" style="font-size:18px ;"> </i>
+                        <div *ngIf="amount"
+                            class="p-0 m-0 rounded-circle bg-white position-absolute top-0 end-0 d-flex justify-content-center align-items-center"
+                            style="width: 1rem; height: 1rem;">
+                            <span class="text-black p-0 m-0" style="font-size: 13px;">
+                                {{ cartCount$ | async }}</span>
+                        </div>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+</nav>

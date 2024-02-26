@@ -1,0 +1,46 @@
+<div class="container mt-3">
+    <div class="w-100 d-flex justify-content-between align-items-center text-black  py-1 m-0">
+        <h4 class="p-0 m-0">shopping cart</h4>
+        <p class="p-0 m-0 lead text-muted">the price</p>
+    </div>
+    <hr class="text-black p-2 m-0">
+    <div class=" row  d-flex  mt-2" *ngFor="let item of cartList; let index=index">
+        <div class="col-md-3 col-sm-3 order-md-1 order-sm-1 khaer "><img [src]="item.prd.image" alt="">
+        </div>
+        <div class="col-md-2 price col-sm-6 order-md-3 order-sm-2 order-lg-3     text-end px-2">
+            <p class="text-black "> total : {{item.amount*item.prd.price}}$</p>
+        </div>
+        <div class="col-md-7 text-black g-1 col-sm-12 order-md-2 order-sm-3  order-lg-2  p-2">
+            <h5 class="">{{item.prd.title}}.</h5>
+            <div class=" d-flex  justify-content-start align-items-start">
+                <div class="d-flex justify-content-start align-items-start col-6 ms-5">
+                    <button class="btn CheckOut m-1 px-1" (click)="plusAmount(index)">
+                        +
+                    </button>
+                    <input class="form-control my-1" type="number" (change)="detectChange()" min="1"
+                        value="{{ item.amount }}" />
+                    <button class="btn CheckOut m-1 px-1" (click)="minusAmount(index)">
+                        -
+                    </button>
+                </div>
+                <div style="padding: 32px;">
+                    <button class="bg-transparent border-0" style="color: red;" (click)="deletePrd(index)">
+                        delete
+                    </button>
+
+
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <hr class="text-black p-1 order-4">
+
+    </div>
+    <div *ngIf="total" class="w-100 text-end">
+        <h5 class="text-black"> Total Price : {{total+20}} $</h5>
+    </div>
+</div>

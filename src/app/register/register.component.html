@@ -1,0 +1,120 @@
+<div class="container  ">
+    <!-- <div *ngIf="error" class="alert alert-danger  w-75 mx-auto">
+        <p>{{error}}</p>
+    </div> -->
+    <div class="row g-0 w-75 mx-auto registered mb-3 mt-5">
+        <div class="col-lg-5 ms-0 p-0">
+            <img src="../../assets/image/WhatsApp Image 2024-02-04 at 17.25.54_81d4bf0f.jpg " alt=""
+                class=" w-100 ms-0 p-0 ">
+        </div>
+        <div class=" col-lg-7 p-3">
+            <div class="text-center col-lg-12" style="color: black;">
+                <h5 class="regisrer-form" id="regisrer-form">Register Form</h5>
+            </div>
+            <form (ngSubmit)="submitform(registerForm)" [formGroup]="registerForm" class="row">
+                <div class="col-lg-12">
+                    <label style="color: black;">Gender:</label>
+                    <div class="mt-1">
+                        <input type="radio" formControlName="gender" value="Male">
+                        <span style="color: black;">Male</span>
+                        <input type="radio" formControlName="gender" value="Female" class="ms-5">
+                        <span style="color: black;">Female</span>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 mt-3">
+
+                    <input type="text" formControlName="userName"
+                        class="border border-top-0  border-end-0 border-start-0 form-control " placeholder="userName">
+                    <div *ngIf=" registerForm.get('userName')?.errors && registerForm.get('userName')?.touched"
+                        class="m-0 p-0">
+                        <p class="alert m-0 p-0 " style="color: red;"
+                            *ngIf="registerForm.get('userName')?.getError('required')">
+                            User name is required </p>
+
+                    </div>
+                </div>
+
+
+                <div class="col-lg-12 mt-3">
+                    <input type="email" formControlName="emailAdress"
+                        class="border border-top-0  border-end-0 border-start-0 form-control " placeholder="Email">
+                    <div *ngIf=" registerForm.get('emailAdress')?.errors && registerForm.get('emailAdress')?.touched"
+                        class="m-0 p-0 ">
+                        <p class="alert m-0 p-0" style="color: red;"
+                            *ngIf="registerForm.get('emailAdress')?.getError('required')">
+                            email is required </p>
+                        <p class=" alert m-0 p-0 " style="color: red;"
+                            *ngIf="registerForm.get('emailAdress')?.getError('email')">
+                            email format not valid</p>
+                    </div>
+                </div>
+
+                <!-- <div class="alert alert-danger "
+                                         *ngIf=" registerForm.get('email')?.errors && registerForm.get('email')?.touched">
+                                         <p class="m-0" *ngIf="registerForm.get('emailAdress')?.getError('required')"> email is required
+                                         </p>
+                                         <p class="m-0" *ngIf="registerForm.get('emailAdress')?.getError('emailAdress')"> email format
+                                              not valid</p>
+                                    </div> -->
+                <div class="col-lg-12 mt-3 " formGroupName="dateOfBirth">
+                    <label style="color: black;"> Date Of Birth:</label>
+                    <div class="row">
+                        <div class="Day col-lg-4">
+                            <select class="form-select" formControlName="day">
+                                <option style="color: black;" class="option" hidden>day</option>
+                                <option style="color: black;" *ngFor="let day of daylist ">{{day}}</option>
+                            </select>
+                        </div>
+                        <div class="month col-lg-4">
+                            <select class="form-select" formControlName="month">
+                                <option style="color: black;" hidden>month</option>
+                                <option style="color: black;" *ngFor="let month of monthlist  ">{{month}}</option>
+                            </select>
+                        </div>
+                        <div class="year col-lg-4">
+                            <select class="form-select" formControlName="year">
+                                <option style="color: black;" hidden>year</option>
+                                <option style="color: black;" *ngFor="let year of yearlist ">{{year}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-3">
+
+                    <input type="number" formControlName="moblieNum"
+                        class="border border-top-0  border-end-0 border-start-0 form-control "
+                        placeholder="Phone Number">
+                    <div *ngIf=" registerForm.get('moblieNum')?.errors && registerForm.get('moblieNum')?.touched"
+                        class="m-0 p-0">
+                        <p class="alert m-0 p-0 " style="color: red;"
+                            *ngIf="registerForm.get('moblieNum')?.getError('required')">
+                            phone number is required </p>
+
+                    </div>
+                </div>
+                <div class="col-lg-12 mt-3">
+                    <input type="password" formControlName="password"
+                        class="border border-top-0  border-end-0 border-start-0 form-control " placeholder="password">
+                    <div *ngIf=" registerForm.get('password')?.errors && registerForm.get('password')?.touched "
+                        class="m-0 p-0">
+                        <p class="alert m-0 p-0 " style="color: red;"
+                            *ngIf="registerForm.get('password')?.getError('required')">
+                            password is required </p>
+
+                    </div>
+                </div>
+
+
+                <button [disabled]="registerForm.invalid" type="submit" class="btn btn-col col-lg-12 mt-3 ">
+
+                    <span>Register</span>
+                    <!-- <i class="fas fa-spinner fa-spin"></i> -->
+                </button>
+
+
+            </form>
+        </div>
+    </div>
+</div>

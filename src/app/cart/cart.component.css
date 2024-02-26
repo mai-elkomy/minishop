@@ -1,0 +1,19 @@
+img {
+    width: 100px;
+    height: 100px;
+}
+
+@media(max-width:575px) {
+    .khaer {
+        width: 50%;
+    }
+
+    .price {
+        width: 50%;
+    }
+}
+
+.CheckOut {
+    background-color: #3b5558;
+    color: white;
+}

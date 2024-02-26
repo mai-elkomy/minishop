@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row mt-4 ">
+        <div class="col-md-3">
+            <img class="w-100" [src]="item.image" alt="">
+
+
+        </div>
+        <div class="d-flex align-items-center col-md-9 ">
+            <div class="">
+
+                <h3 class="h2 text-black" style="font-weight: bolder; "> {{item.title}}
+                </h3>
+                <p class="py-2 text-muted">{{item.description}}</p>
+
+                <p class=" text-black"> Rate : {{item.rating.rate}}</p>
+                <p class=" text-black"> Count : {{item.rating.count}}</p>
+                <p class=" text-black"> Price :${{item.price}}</p>
+            </div>
+        </div>
+    </div>
+</div>
